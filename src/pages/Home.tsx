@@ -397,33 +397,57 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SMS POLICY ── */}
-      <section id="sms-policy" className="page-section bg-cv-card border-t border-cv-border">
-        <div className="max-w-3xl mx-auto px-6">
-          <h3 className="text-white font-bold text-lg mb-4">SMS / Text Message Terms</h3>
-          <div className="space-y-3 text-cv-muted text-sm leading-relaxed">
-            <p>
-              By opting in to text messages from Central Valley Auto Care, you agree to receive
-              recurring automated marketing text messages (including service reminders, appointment
-              confirmations, special offers, and alerts) sent to the mobile number provided at sign-up.
-              Message &amp; data rates may apply. Message frequency varies based on your service
-              schedule and promotional activity.
-            </p>
-            <p>
-              <strong className="text-white">To opt out:</strong> Reply STOP at any time. After
-              texting STOP, you will receive one final confirmation message and will not receive
-              further messages unless you re-subscribe.
-            </p>
-            <p>
-              <strong className="text-white">To get help:</strong> Reply HELP or{' '}
-              <Link to="/contact" className="underline hover:text-white">contact us</Link>.
-            </p>
-            <p>
-              Consent to receive text messages is not a condition of purchase. Your information will
-              not be sold to third parties. See our{' '}
-              <Link to="/contact#privacy" className="underline hover:text-white">Privacy Policy</Link>{' '}
-              for more details.
-            </p>
+      {/* ── HOW IT WORKS ── */}
+      <section className="page-section bg-cv-card border-t border-cv-border">
+        <div className="container">
+          <div className="text-center mb-12">
+            <span className="section-label">Simple Process</span>
+            <h2 className="text-4xl font-black text-white mt-2">How the VIP Club Works</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {[
+              {
+                step: '01',
+                icon: '📋',
+                title: 'Join Free',
+                desc: 'Fill out the form above in under 60 seconds. No credit card, no commitment — just your name and number.',
+              },
+              {
+                step: '02',
+                icon: '🔔',
+                title: 'We Track Your Intervals',
+                desc: "We monitor your service history and send you a heads-up by SMS or email before you're ever overdue.",
+              },
+              {
+                step: '03',
+                icon: '🚗',
+                title: 'Book & Save',
+                desc: 'Priority scheduling, member-only discounts, and a free tire rotation waiting for you on your next visit.',
+              },
+            ].map(({ step, icon, title, desc }) => (
+              <div key={step} className="relative text-center">
+                <div className="text-6xl font-black text-cv-border/60 leading-none mb-4 select-none">
+                  {step}
+                </div>
+                <div className="text-4xl mb-4">{icon}</div>
+                <h3 className="text-white font-extrabold text-lg mb-3">{title}</h3>
+                <p className="text-cv-muted text-sm leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <a
+              href="#vip-form"
+              className="btn-primary inline-flex text-sm px-6 py-3 rounded-xl"
+              onClick={(e) => {
+                e.preventDefault()
+                document.getElementById('vip-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }}
+            >
+              Join the VIP Club — It's Free
+            </a>
           </div>
         </div>
       </section>
